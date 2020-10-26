@@ -13,13 +13,13 @@ namespace Convertor
                                                 "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                                                 "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
                                                 "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
-                                                "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
+                                                "e", "f", "g", "h", "i", "j", "k", "l", "<", ">",
                                              };
 
             Console.WriteLine("Если хотите перевести число в произвольную СС, нажмите 1." +
                               "Если хотите перевести число в римские числа, нажмите 2");
             int flag;
-            while (!Int32.TryParse(Console.ReadLine(), out flag))
+            while (!Int32.TryParse(Console.ReadLine(), out flag) || (flag != 1 && flag != 2))
                 Console.Write("Введите одну цыфру. '1' или '2': ");
             
             if (flag == 1)
@@ -58,10 +58,16 @@ namespace Convertor
             for (int j = 1; j < strNumber.Length; j++)
             {
                 if (strNumber[j] == ',' || strNumber[j] == '.')
+                {
                     wholePart = j;
+                    Console.WriteLine("Находим целую часть. Она равна " + wholePart + " знакам");
+                }
             }
             if (wholePart == 0)
+            {
                 wholePart = strNumber.Length;
+                Console.WriteLine("Это целое число.");
+            }
             for (int i = 0; i < strNumber.Length; i++)
             {
                 if (strNumber[i] == ',' || strNumber[i] == '.')
@@ -71,7 +77,16 @@ namespace Convertor
                 }
 
                 int intNumber = Array.IndexOf(alphabet, strNumber[i].ToString());
+
+                if (intNumber > 9)
+                    Console.WriteLine("Символ " + strNumber[i] + "соответствует" + intNumber + 
+                        " в десятичной СС");
+
                 double x = Convert.ToDouble(intNumber) * Convert.ToDouble(Math.Pow(nBase, wholePart - 1 - i + k));
+
+                double t = wholePart - 1 - i + k;
+                Console.WriteLine(num10 + " = " + num10 + " + " + Convert.ToDouble(intNumber) + " * " + nBase + 
+                                 "^" + t);
                 num10 += x;
             }
             if (nOutBase == 10)
@@ -225,8 +240,12 @@ namespace Convertor
         {
             int intNum10 = Convert.ToInt32(num10);
             string str = "";
+
+            Console.WriteLine("Выполняем перевод десятичного числа " + num10 + " в число с основанием " + nOutBase);
+
             while (intNum10 != 0)
             {
+                Console.WriteLine(str + " + остаток от деления числа " + intNum10 + " на " + nOutBase);
                 str += alphabet[(intNum10 % nOutBase)];
                 decimal x = (intNum10 - (intNum10 % nOutBase)) / nOutBase;
                 intNum10 = Convert.ToInt32(Math.Floor(x));
