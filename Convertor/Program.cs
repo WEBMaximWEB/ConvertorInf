@@ -82,16 +82,14 @@ namespace Convertor
                     Console.WriteLine("Символ " + strNumber[i] + "соответствует" + intNumber + 
                         " в десятичной СС");
 
-                double x = Convert.ToDouble(intNumber) * Convert.ToDouble(Math.Pow(nBase, wholePart - 1 - i + k));
+                double x = Convert.ToDouble(intNumber) * Convert.ToDouble(Math.Pow(nBase, wholePart - 1 - i - k));
 
                 double t = wholePart - 1 - i + k;
                 Console.WriteLine(num10 + " = " + num10 + " + " + Convert.ToDouble(intNumber) + " * " + nBase + 
                                  "^" + t);
                 num10 += x;
             }
-            if (nOutBase == 10)
-                return num10.ToString();
-
+            Console.WriteLine("Получаем десятичное число " + num10);
 
             if (wholePart == strNumber.Length)
             {
@@ -104,15 +102,24 @@ namespace Convertor
                 {
                     WH = WholeNumber(Convert.ToDouble(Math.Floor(num10)), nBase, nOutBase, alphabet);
                     WH += ",";
+                    Console.WriteLine("Это ццелая часть:" + WH);
                 }
-                else WH = "0,";
+                else
+                {
+                    WH = "0,";
+                    Console.WriteLine("Целая часть равна нулю.");
+                }
                 num10 -= Math.Floor(num10);
                 int flag = 0;
                 string fractionalPart = "";
 
+                Console.WriteLine("Далее умножаем число на " + nOutBase + 
+                                " и выписываем целую часть в конечной СС");
                 while (num10 - Math.Floor(num10) != 0 && flag < 10)
                 {
+                    Console.Write(fractionalPart + " + ");
                     fractionalPart += alphabet[Convert.ToInt32(Math.Floor(num10 * nOutBase))];
+                    Console.WriteLine(fractionalPart);
                     num10 = (num10 * nOutBase) - Math.Floor(num10 * nOutBase);
                     flag++;
                 }
