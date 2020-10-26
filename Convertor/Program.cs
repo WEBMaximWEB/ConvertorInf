@@ -116,76 +116,106 @@ namespace Convertor
                 {
                     num -= 1000;
                     str += "M";
+                    Console.WriteLine(num + 1000 + " - 1000 = " + num);
+                    Console.WriteLine("Добавляем 'M'");
                 }
                 else if (num >= 900)
                 {
                     num -= 900;
                     str += "CM";
+                    Console.WriteLine(num + 900 + " - 900 = " + num);
+                    Console.WriteLine("Добавляем 'CM'");
                 }
                 else if (num >= 500)
                 {
                     num -= 500;
                     str += "D";
+                    Console.WriteLine(num + 500 + " - 500 = " + num);
+                    Console.WriteLine("Добавляем 'D'");
                 }
                 else if (num >= 400)
                 {
                     num -= 400;
                     str += "CD";
+                    Console.WriteLine(num + 400 + " - 400 = " + num);
+                    Console.WriteLine("Добавляем 'CD'");
                 }
                 else if (num >= 100)
                 {
                     num -= 100;
                     str += "C";
+                    Console.WriteLine(num + 100 + " - 100 = " + num);
+                    Console.WriteLine("Добавляем 'C'");
                 }
                 else if (num >= 90)
                 {
                     num -= 90;
                     str += "XC";
+                    Console.WriteLine(num + 90 + " - 90 = " + num);
+                    Console.WriteLine("Добавляем 'XC'");
                 }
                 else if (num >= 50)
                 {
                     num -= 50;
                     str += "L";
+                    Console.WriteLine(num + 50 + " - 50 = " + num);
+                    Console.WriteLine("Добавляем 'L'");
                 }
                 else if (num >= 40)
                 {
                     num -= 40;
                     str += "XL";
+                    Console.WriteLine(num + 40 + " - 40 = " + num);
+                    Console.WriteLine("Добавляем 'XL'");
                 }
                 else if (num >= 10)
                 {
                     num -= 10;
                     str += "X";
+                    Console.WriteLine(num + 10 + " - 10 = " + num);
+                    Console.WriteLine("Добавляем 'X'");
                 }
                 else if (num >= 9)
                 {
                     num -= 9;
                     str += "IX";
+                    Console.WriteLine(num + 9 + " - 9 = " + num);
+                    Console.WriteLine("Добавляем 'IX'");
                 }
                 else if (num >= 5)
                 {
                     num -= 5;
                     str += "V";
+                    Console.WriteLine(num + 5 + " - 5 = " + num);
+                    Console.WriteLine("Добавляем 'V'");
                 }
                 else if (num >= 4)
                 {
                     num -= 4;
                     str += "IV";
+                    Console.WriteLine(num + 4 + " - 4 = " + num);
+                    Console.WriteLine("Добавляем 'IV'");
                 }
                 else if (num >= 3)
                 {
                     num -= 3;
                     str += "III";
+                    Console.WriteLine(num + 3 + " - 3 = " + num);
+                    Console.WriteLine("Добавляем 'III'");
                 }
                 else if (num >= 2)
                 {
                     num -= 2;
                     str += "II";
+                    Console.WriteLine(num + 2 + " - 2 = " + num);
+                    Console.WriteLine("Добавляем 'II'");
                 }
                 else if (num >= 1)
                 {
                     num -= 1;
                     str += "I";
+                    Console.WriteLine(num + 1 + " - 1 = " + num);
+                    Console.WriteLine("Добавляем 'I'");
                 }
             }
             return str;
