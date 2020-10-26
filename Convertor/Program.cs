@@ -102,7 +102,7 @@ namespace Convertor
                 {
                     WH = WholeNumber(Convert.ToDouble(Math.Floor(num10)), nBase, nOutBase, alphabet);
                     WH += ",";
-                    Console.WriteLine("Это ццелая часть:" + WH);
+                    Console.WriteLine("Это целая часть:" + WH);
                 }
                 else
                 {
@@ -248,7 +248,7 @@ namespace Convertor
             int intNum10 = Convert.ToInt32(num10);
             string str = "";
 
-            Console.WriteLine("Выполняем перевод десятичного числа " + num10 + " в число с основанием " + nOutBase);
+            Console.WriteLine("Выполняем перевод десятичного числа в число с основанием " + nOutBase);
 
             while (intNum10 != 0)
             {
