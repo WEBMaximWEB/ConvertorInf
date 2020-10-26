@@ -84,26 +84,26 @@ namespace Convertor
             }
             else
             {
-                int WH;
+                string WH;
                 if (Math.Floor(num10) != 0)
                 {
-                    WH = Int32.Parse(WholeNumber(Convert.ToDouble(Math.Floor(num10)),
-                                                    nBase, nOutBase, alphabet));
+                    WH = WholeNumber(Convert.ToDouble(Math.Floor(num10)), nBase, nOutBase, alphabet);
+                    WH += ",";
                 }
-                else WH = 0;
+                else WH = "0,";
                 num10 -= Math.Floor(num10);
                 int flag = 0;
-                string fractionalPart = "0,";
+                string fractionalPart = "";
 
                 while (num10 - Math.Floor(num10) != 0 && flag < 10)
                 {
-                    fractionalPart +=  Math.Floor(num10 * nOutBase).ToString();
+                    fractionalPart += alphabet[Convert.ToInt32(Math.Floor(num10 * nOutBase))];
                     num10 = (num10 * nOutBase) - Math.Floor(num10 * nOutBase);
                     flag++;
                 }
 
-                double result = WH + Convert.ToDouble(fractionalPart);
-                return result.ToString();
+                str = WH + fractionalPart;
+                return str;
             }
         }
 
